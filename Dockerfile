@@ -24,4 +24,4 @@ RUN mkdir data
 
 #COPY inference.py /usr/local/lib/python3.8/dist-packages/sleap/nn/.
 
-CMD ["/bin/bash"]
+
