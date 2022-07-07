@@ -19,27 +19,21 @@
 #!/bin/bash
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  ## Install pyenv
-  echo "OS Type: Linux"
-  curl https://pyenv.run | bash
-  source ~/.bashrc
-  ## Set up virtualenv within pyenv
-  pyenv install 3.7.4
-  pyenv local 3.7.4
-  pyenv global 3.7.4
-  pyenv virtualenv mlempy
-  pyenv local mlempy
-  ## Set up python libraries
-  pip install argparse, h5py, opencv-python, numpy, matplotlib, pandas, trackpy
-  ## Set up ssh certificate and send it to Eos
+  ## BUILD DEPENDENCIES
+  pip install pip-tools
+  pip-compile -r requirements.txt
+
+  ## TODO: Set up ssh certificate and send it to Eos
   # ssh-keygen
+
   ## Set up directories
   mkdir -p ~/ant/data/{videos, density, montages, trajectories, plots}
-  ## Clone git repository of codebase
-  git clone admin@eos.physics.purdue.edu:volume1/codecase
-  ## Add $PATH variable to codebase folder
-  echo 'export PATH="$HOME/antworks/codebase:$PATH"' > ~/.bashrc
-  source ~/.bashrc  
+  ## TODO: Clone git repositories of codebase
+
+  ## Save local paths
+  python local_paths.py
+  cp paths.json ../{analysis, preprocessing, simulation}/.
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   ## Install pyenv
   echo "OS Type: MacOs"
