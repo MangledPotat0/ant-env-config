@@ -2,7 +2,7 @@
 
 # FOR LINUX
 
-cd ~/Documents/antproject/codebase/
+#cd ~/Documents/antproject/codebase/
 
 # build docker image
 
