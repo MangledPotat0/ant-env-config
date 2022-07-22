@@ -23,4 +23,4 @@ I don't know whether Mac lets Docker access graphic interface. For now just inst
 
 ``` pip install requirements.txt```
 
-I don't if all Macs use AMD GPUs but the ones that do cannot use CUDA.
+I don't know if all Macs use AMD GPUs but the ones that do cannot use CUDA.
